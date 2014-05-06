@@ -2,6 +2,9 @@
 
 exports.home = function(req, res) {
     res.render('home', {
-        cities: []
+        cities: [{ 
+            name: 'Toronto',
+            slug: 'toronto'
+        }]
     });
 };
