@@ -1,11 +1,6 @@
 extends layout
 
 block content
-    p 
-        | A free, open, non-profit service by gymers for gymers. For ways to contribute, please visit our github repo 
-        a(target="_blank" href='https://github.com/ramseydsilva/gymbuddy') here
-        |.
-
     h2 Select a city
     for city in cities
         a(href='/'+city.slug)= city.name
