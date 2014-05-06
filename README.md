@@ -20,9 +20,9 @@ Contribute
 ----------
 
 If you'd like to contribute, contact Ramsey. Ideally, you would clone the repo
-and then send a pull request. Alternately, you can request to be added as a
-contributor. All the content will remain, open and fair. This
-is a community project.
+and then send a pull request. Alternatively, you can request to be added as a
+contributor. All the content will remain, open and fair. This is and always will
+be a non-profit, community project. All your ideas are welcome!
 
 TODO
 ----
