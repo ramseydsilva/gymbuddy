@@ -12,6 +12,8 @@ app.use(express.errorHandler());
 var routes = require('./routes')(app);
 app.set('view engine', 'jade');
 
+app.set('port', process.env.PORT || 3000);
+
 var server = app.listen(3000, function() {
-    console.log('Listening on port %d', server.address().port);
+    console.log('Listening on port %d', app.get('port'));
 });
