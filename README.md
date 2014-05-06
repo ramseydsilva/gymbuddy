@@ -16,13 +16,22 @@ the contributors either have full time jobs or other commitments anyway, and
 none of us here are waiting to make a quick buck at the cost of people trying 
 to be healthy and help others to do the same.
 
+Philosophy
+----------
+
+* The service is and always will be free, open, fair.
+* Community first. All your ideas matter. This document is not set in stone, and all reasonable feedback from the community will be incorporated after some discussion.
+* Every resource will be accessible in a html and json format.
+* To access the api, append the url with ?format=json. This allows other services to plug and play with ours. The default format will be html.
+* Completely semantic html, although some use of javascript is permitted esp for google maps integration.
+* Most relevant information should be displayed before the flap, everything else under.
+
 Contribute
 ----------
 
-If you'd like to contribute, contact Ramsey. Ideally, you would clone the repo
-and then send a pull request. Alternatively, you can request to be added as a
-contributor. All the content will remain, open and fair. This is and always will
-be a non-profit, community project. All your ideas are welcome!
+If you'd like to contribute, contact [Ramsey](mailto:ramseydsilva@gmail.com). To log an issue, bug or request a feature, use the github [issue tracker](https://github.com/ramseydsilva/gymbuddy/issues).
+
+To contribute to the source code, ideally, you would clone the repo and then send a pull request. Alternatively, you can request to be added as a contributor.
 
 TODO
 ----
