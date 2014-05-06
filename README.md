@@ -22,9 +22,9 @@ Philosophy
 * The service is and always will be free, open, fair.
 * Community first. All your ideas matter. This document is not set in stone, and all reasonable feedback from the community will be incorporated after some discussion.
 * Every resource will be accessible in a html and json format.
-* To access the api, append the url with ?format=json. This allows other services to plug and play with ours.
+* To access the api, append the url with ?format=json. This allows other services to plug and play with ours. The default format will be html.
+* Completely semantic html, although some use of javascript is permitted esp for google maps integration.
 * Most relevant information should be displayed before the flap, everything else under.
-* Completely html, although some use of javascript is permitted esp for google maps integration.
 
 Contribute
 ----------
