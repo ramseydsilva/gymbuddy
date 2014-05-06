@@ -2,5 +2,4 @@ extends layout
 
 block content
     h2 Select a city
-    for city in cities
-        a(href='/'+city.slug)= city.name
+    include ./includes/cities

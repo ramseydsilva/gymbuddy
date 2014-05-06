@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    if (error)
+        span Error: #{error}
+    form(method='post', action='/cities/new')
+        input(type='text', name='city', value=city)
+        input(type='submit')

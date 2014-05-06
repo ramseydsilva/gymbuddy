@@ -1,0 +1,14 @@
+ul
+if (!cities.length)
+    li
+        a(href='/cities/new') Create new
+else
+    - var i = 0;
+    - for city in cities
+        - i+=1;
+        li
+            a(href='/'+city.slug)= city.name
+        - if (i == cities.length)
+            li
+                a(href='/cities/new') Create new
+
