@@ -31,8 +31,7 @@ Contribute
 
 If you'd like to contribute, contact [Ramsey](mailto:ramseydsilva@gmail.com). To log an issue, bug or request a feature, use the github [issue tracker](https://github.com/ramseydsilva/gymbuddy/issues).
 
-To contribute to the source code, ideally, you would clone the repo and then send a pull request. Alternatively, you can request to be added as a contributor. All the content will remain, open and fair. This is and always will
-be a non-profit, community project. All your ideas are welcome!
+To contribute to the source code, ideally, you would clone the repo and then send a pull request. Alternatively, you can request to be added as a contributor.
 
 TODO
 ----
