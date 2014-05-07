@@ -35,3 +35,24 @@ exports.new = function(req, res) {
         });
     }
 }
+
+exports.city = function(req, res) {
+    async.parallel({
+        city: function(next) {
+            City.findOne({slug: req.params.city}, next);
+        },
+        posts: function(next) {
+            next(null, []);
+        }
+    }, function(err, results) {
+        console.log(results);
+        if (!results.city) {
+            res.render(404);
+        } else {
+            res.render('city/city', {
+                city: results.city,
+                posts: results.posts
+            });
+        }
+    });
+}

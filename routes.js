@@ -11,4 +11,5 @@ module.exports = function(app) {
     app.get('/cities', cityController.all);
     app.get('/cities/new', cityController.new);
     app.post('/cities/new', cityController.new);
+    app.get('/:city', cityController.city);
 }
