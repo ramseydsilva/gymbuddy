@@ -4,7 +4,7 @@ var async = require('async'),
     Post = require('../models/post');
 
 exports.new = function(req, res) {
-    var post = new Post();
+    var post = new Post({city: req.params.city});
     var dict = {
         city: req.params.city
     };
@@ -12,18 +12,16 @@ exports.new = function(req, res) {
         post: function(next) {
             if (req.method.toLowerCase() == 'post') {
                 dict.error = '';
-                if (!req.body.description) {
-                    dict.error = 'Description is required';
-                } else {
-                    post.description = req.body.description;
-                }
-                if (!req.body.title) {
-                    dict.error = 'Title is required';
-                } else {
-                    post.title = req.body.title;
-                }
+                ['title', 'email', 'description'].forEach(function(field) {
+                    if (!req.body[field] && !dict.error) {
+                        dict.error = field + ' is required';
+                        next(null);
+                    } else {
+                        post[field] = req.body[field];
+                    }
+                });
                 if (!dict.error) {
-                    Post.create({title: req.body.title, description: req.body.description, city: req.params.city}, function(err, doc) {
+                    post.save(function(err, doc) {
                         if (err) {
                             dict.error = err;
                             next(null);
@@ -31,8 +29,6 @@ exports.new = function(req, res) {
                             res.redirect('/city/'+req.params.city);
                         }
                     });
-                } else {
-                    next(null);
                 }
             } else {
                 next(null);
@@ -53,6 +49,8 @@ exports.post = function(req, res) {
         if (!results.post) {
             res.render(404);
         } else {
+            results.post.views +=1;
+            results.post.save();
             res.render('post/post', {
                 post: results.post
             });

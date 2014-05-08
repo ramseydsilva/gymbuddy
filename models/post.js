@@ -11,9 +11,14 @@ var schemaOptions = {
 
 var postSchema = new mongoose.Schema({
     title: { type: String, index: true, default: '' },
-    hits: { type: Number, default: 1, index: true },
+    views: { type: Number, default: 1, index: true },
     city: { type: String },
-    description: { type: String }
+    description: { type: String },
+    email: { type: String, default: '' }
 }, schemaOptions);
+
+postSchema.virtual('url').get(function() {
+    return '/city/'+this.city+'/post/'+this.id;
+});
 
 module.exports = mongoose.model("post", postSchema);

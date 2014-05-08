@@ -12,14 +12,16 @@ var schemaOptions = {
 var citySchema = new mongoose.Schema({
     name: { type: String, index: true, unique: true },
     slug: { type: String, index: true, unique: true },
-    url: { type: String },
-    hits: { type: Number, default: 1, index: true },
+    views: { type: Number, default: 1, index: true },
     location: {
         longitude: String,
         latitude: String
     }
 }, schemaOptions);
 
+citySchema.virtual('url').get(function() {
+    return '/city/'+this.slug;
+});
 
 citySchema.pre('save', function(next) {
     if (this.name && !this.slug) {

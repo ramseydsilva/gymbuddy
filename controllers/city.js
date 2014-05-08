@@ -28,7 +28,7 @@ exports.new = function(req, res) {
                     city: req.body.city
                 });
             } else {
-                res.redirect('/cities');
+                res.redirect('/city/all');
             }
         });
     } else {

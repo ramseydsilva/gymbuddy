@@ -4,7 +4,7 @@ block content
     h2 Create new city
     if (error)
         span Error: #{error}
-    form(method='post', action='/cities/new')
+    form(method='post', action='/city/new')
         input(type='text', name='city', value=city, placeholder='Enter city name')
         input(type='submit')
     br
