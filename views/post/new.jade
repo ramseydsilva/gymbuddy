@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h2 Create New post
+    if (error)
+        span Error: #{error}
+    form(method='post', action='/city/#{city}/post/new')
+        input(type='text', name='title', value='#{post.title}', placeholder='Enter title')
+        br
+        textarea(name='description', placeholder='Enter description')= post.description
+        br
+        input(type='submit')

@@ -4,7 +4,8 @@ block content
     h2= city.name
     ul
         for post in posts
-            li= post.title
+            li
+                a(href='/city/#{city.slug}/post/#{post.id}')= post.title
         li
-            a(href='/#{city.slug}/new') Create new Post
+            a(href='/city/#{city.slug}/post/new') Create new Post
 

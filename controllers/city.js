@@ -1,6 +1,7 @@
 'use strict';
 
 var async = require('async'),
+    Post = require('../models/post'),
     City = require('../models/city');
 
 exports.all = function(req, res) {
@@ -42,10 +43,9 @@ exports.city = function(req, res) {
             City.findOne({slug: req.params.city}, next);
         },
         posts: function(next) {
-            next(null, []);
+            Post.find({city: req.params.city}, next);
         }
     }, function(err, results) {
-        console.log(results);
         if (!results.city) {
             res.render(404);
         } else {

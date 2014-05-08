@@ -1,7 +1,7 @@
 ul
     for city in cities
         li
-            a(href='/'+city.slug)= city.name
+            a(href='/city/#{city.slug}')= city.name
     li
-        a(href='/cities/new') Create new
+        a(href='/city/new') Create new City
 
