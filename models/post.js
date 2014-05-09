@@ -14,7 +14,11 @@ var postSchema = new mongoose.Schema({
     views: { type: Number, default: 1, index: true },
     city: { type: String },
     description: { type: String },
-    email: { type: String, default: '' }
+    email: { type: String, default: '' },
+    replies: [{
+        reply: {type: String },
+        createdAt: { type: Date }
+    }]
 }, schemaOptions);
 
 postSchema.virtual('url').get(function() {

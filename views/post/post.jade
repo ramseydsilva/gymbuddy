@@ -3,5 +3,17 @@ extends ../layout
 block content
     h2= post.title
     p= post.description
+    hr
+    form(method='post', action='#{post.url}')
+        textarea(name='reply')
+        br
+        input(type='submit', value='Reply')
+    hr
+    if (!!post.replies.reverse())
+        for reply in post.replies
+            p= reply.reply
+            span= reply.createdAt
+            hr
+    br
     a(href='javascript:history.back()') Go back
     br

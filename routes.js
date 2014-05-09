@@ -16,4 +16,5 @@ module.exports = function(app) {
     app.get('/city/:city/post/new', postController.new);
     app.post('/city/:city/post/new', postController.new);
     app.get('/city/:city/post/:post', postController.post);
+    app.post('/city/:city/post/:post', postController.postReply);
 }

@@ -43,7 +43,7 @@ exports.new = function(req, res) {
 exports.post = function(req, res) {
     async.parallel({
         post: function(next) {
-            Post.findOne({_id: req.params.post}, next);
+            Post.findOne({_id: req.params.post, city: req.params.city}, next);
         }
     }, function(err, results) {
         if (!results.post) {
@@ -54,6 +54,36 @@ exports.post = function(req, res) {
             res.render('post/post', {
                 post: results.post
             });
+        }
+    });
+}
+
+exports.postReply = function(req, res) {
+    console.log(req.params);
+    Post.findOne({_id: req.params.post, city: req.params.city}, function(err, doc) {
+        if (err) throw err;
+        if (!doc) {
+            res.render(404);
+        } else {
+            var dict = {post: doc};
+            var reply = {};
+            ['reply'].forEach(function(field) {
+                if (!req.body[field] && !dict.error) {
+                    dict.error = field + ' is required';
+                } else {
+                    reply[field] = req.body[field];
+                }
+            });
+            if (!!dict.error) {
+                res.render('post/post', dict);
+            } else {
+                reply.createdAt = Date.now();
+                doc.replies.push(reply);
+                doc.save(function(err, doc) {
+                    if (err) throw err;
+                    res.redirect(doc.url);
+                });
+            }
         }
     });
 }
