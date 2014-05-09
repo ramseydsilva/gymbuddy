@@ -17,6 +17,7 @@ var postSchema = new mongoose.Schema({
     email: { type: String, default: '' },
     replies: [{
         reply: {type: String },
+        email: {type: String, default: ''},
         createdAt: { type: Date }
     }]
 }, schemaOptions);

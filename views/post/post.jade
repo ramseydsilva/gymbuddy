@@ -3,17 +3,27 @@ extends ../layout
 block content
     h2= post.title
     p= post.description
-    hr
+    h3 Post a reply
     form(method='post', action='#{post.url}')
-        textarea(name='reply')
+        textarea(name='reply', placeholder='Type your reply')
+        br
+        span Enter your email if you want the poster to privately reply to you. Your email will be hidden from the public.
+        br
+        input(type='text', name='email', placeholder='Email')
         br
         input(type='submit', value='Reply')
-    hr
-    if (!!post.replies.reverse())
-        for reply in post.replies
-            p= reply.reply
-            span= reply.createdAt
-            hr
+        br
+    h3 Replies
+    if (!!post.replies.length)
+        ul
+        for reply in post.replies.reverse()
+            li
+                p= reply.reply
+                span= reply.createdAt
+                hr
+    else
+        span No replies yet
+        br
     br
     a(href='javascript:history.back()') Go back
     br
